@@ -9,7 +9,9 @@ export const generateAIContent = async (req, res) => {
     const { title, category } = req.body;
 
     if (!title || !category) {
-      return res.status(400).json({ message: "Title and category are required." });
+      return res
+        .status(400)
+        .json({ message: "Title and category are required." });
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -44,10 +46,11 @@ export const createBlog = async (req, res) => {
 
     const { title, category, about } = req.body;
     if (!title || !category || !about) {
-      return res.status(400).json({ message: "Title, category, and about are required fields" });
+      return res
+        .status(400)
+        .json({ message: "Title, category, and about are required fields" });
     }
 
-    
     const adminName = req.user.name;
     const adminPhoto = req.user.photo.url;
     const createdBy = req.user._id;
@@ -67,7 +70,7 @@ export const createBlog = async (req, res) => {
       createdBy,
       blogImage: {
         public_id: uniqueFilename,
-        url: `http://localhost:4001/uploads/${uniqueFilename}`,
+        url: `https://blog-app-2iif.onrender.com/uploads/${uniqueFilename}`,
       },
     };
 
@@ -82,7 +85,6 @@ export const createBlog = async (req, res) => {
     return res.status(500).json({ error: "Internal Server error" });
   }
 };
-
 
 // ---  Delete Blog ---
 export const deleteBlog = async (req, res) => {
@@ -167,4 +169,3 @@ export const updateBlog = async (req, res) => {
     return res.status(500).json({ error: "Internal Server error" });
   }
 };
-

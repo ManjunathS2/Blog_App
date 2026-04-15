@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         let token = localStorage.getItem("jwt");
         if (token) {
           const { data } = await axios.get(
-            "http://localhost:4001/api/users/my-profile",
+            "https://blog-app-2iif.onrender.com/api/users/my-profile",
             {
               withCredentials: true,
               headers: { "Content-Type": "application/json" },
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/blogs/all-blogs",
+          "https://blog-app-2iif.onrender.com/api/blogs/all-blogs",
           { withCredentials: true },
         );
         setBlogs(data);

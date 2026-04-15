@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const SingleBlog = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { profile } = useAuth(); 
+  const { profile } = useAuth();
 
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const SingleBlog = () => {
     const fetchSingleBlog = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4001/api/blogs/single-blog/${id}`,
+          `https://blog-app-2iif.onrender.com/api/blogs/single-blog/${id}`,
           { withCredentials: true },
         );
         setBlog(data);
@@ -29,7 +29,7 @@ const SingleBlog = () => {
     fetchSingleBlog();
   }, [id]);
 
-  // Function to handle deletion 
+  // Function to handle deletion
   const handleDelete = async () => {
     if (
       !window.confirm(
@@ -40,7 +40,7 @@ const SingleBlog = () => {
 
     try {
       const { data } = await axios.delete(
-        `http://localhost:4001/api/blogs/delete/${id}`,
+        `https://blog-app-2iif.onrender.com/api/blogs/delete/${id}`,
         { withCredentials: true },
       );
       toast.success(data.message || "Blog deleted successfully");

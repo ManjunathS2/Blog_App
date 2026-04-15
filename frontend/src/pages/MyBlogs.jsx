@@ -11,7 +11,7 @@ const MyBlogs = () => {
     const fetchMyBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/blogs/my-blog",
+          "https://blog-app-2iif.onrender.com/api/blogs/my-blog",
           { withCredentials: true },
         );
         setMyBlogs(data);
@@ -28,7 +28,7 @@ const MyBlogs = () => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
       const { data } = await axios.delete(
-        `http://localhost:4001/api/blogs/delete/${id}`,
+        `https://blog-app-2iif.onrender.com/api/blogs/delete/${id}`,
         { withCredentials: true },
       );
       toast.success(data.message || "Blog deleted successfully");

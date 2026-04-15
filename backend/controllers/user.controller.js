@@ -42,7 +42,6 @@ export const register = async (req, res) => {
         .json({ message: "User already exists with this email" });
     }
 
-   
     const cleanFileName = photo.name.replace(/\s+/g, "_");
     const uniqueFilename = `${Date.now()}-${cleanFileName}`;
     const uploadPath = `./public/uploads/${uniqueFilename}`;
@@ -62,7 +61,7 @@ export const register = async (req, res) => {
       role,
       photo: {
         public_id: uniqueFilename, // Storing filename instead of cloud ID
-        url: `http://localhost:4001/uploads/${uniqueFilename}`, 
+        url: `https://blog-app-2iif.onrender.com/uploads/${uniqueFilename}`,
       },
     });
 

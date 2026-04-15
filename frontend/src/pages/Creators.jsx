@@ -14,7 +14,7 @@ const Creators = () => {
     const fetchAdmins = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/users/admins",
+          "https://blog-app-2iif.onrender.com/api/users/admins",
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },

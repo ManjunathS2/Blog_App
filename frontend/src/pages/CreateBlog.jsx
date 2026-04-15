@@ -13,7 +13,6 @@ const CreateBlog = () => {
   const [blogImagePreview, setBlogImagePreview] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
 
-  
   const categories = [
     "Technology",
     "Lifestyle",
@@ -49,7 +48,7 @@ const CreateBlog = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/blogs/ai-generate",
+        "https://blog-app-2iif.onrender.com/api/blogs/ai-generate",
         { title, category },
         {
           withCredentials: true,
@@ -85,7 +84,7 @@ const CreateBlog = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/blogs/create",
+        "https://blog-app-2iif.onrender.com/api/blogs/create",
         formData,
         {
           withCredentials: true,

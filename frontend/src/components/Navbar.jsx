@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4001/api/users/logout",
+        "https://blog-app-2iif.onrender.com/api/users/logout",
         { withCredentials: true },
       );
       localStorage.removeItem("jwt");
